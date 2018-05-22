@@ -38,6 +38,8 @@ dependencies {
             'org.hamcrest:java-hamcrest:+',
             'org.mockito:mockito-core:+',
             'org.springframework:spring-test:+'
+            'org.seleniumhq.selenium:selenium-java:3.12.0'
+
 
     testRuntime 'com.h2database:h2:+',
             'org.junit.jupiter:junit-jupiter-engine:+'
@@ -48,6 +50,6 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     description = 'Generates gradlew[.bat] scripts'
-    gradleVersion = '4.7'
+    gradleVersion = '4.8-rc-1'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
