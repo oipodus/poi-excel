@@ -5,13 +5,17 @@ plugins {
 group 'ru.vlapin.experiments.poi'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 10
 
 repositories {
+
+    flatDir { dirs './lib' } // for local libs
     mavenLocal()
     mavenCentral()
     jcenter() // BinTray
 }
+
+
 
 configurations {
     testCompile.extendsFrom compileOnly
@@ -31,7 +35,7 @@ dependencies {
             'javax.xml.bind:jaxb-api:+',
             'io.vavr:vavr:+'
 
-    compileOnly 'org.projectlombok:lombok:+',
+    compileOnly ':lombok-edge:',// 'org.projectlombok:lombok:+',
             'edu.washington.cs.types.checker:checker-framework:+'
 
     testCompile 'org.junit.jupiter:junit-jupiter-params:+',

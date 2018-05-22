@@ -12,8 +12,8 @@ class ExcelReaderTest {
 
     @Test
     @DisplayName("toMap method works correctly")
-    void toMap() {
+    void testToMap() {
         Map<String, Double> sheet = ExcelReader.toMap("/Countries-with-limits.xlsx", "Sheet2");
-        assertThat(sheet.get("АБХАЗИЯ"), is(4000d));
+        assertThat(sheet.get("АБХАЗИЯ"), is(4_000d));
     }
 }

@@ -25,11 +25,11 @@ public class ExcelReader {
 
             XSSFSheet myExcelSheet = myExcelBook.getSheet(sheetName);
             for (Row row : myExcelSheet) {
-                Cell cell = row.getCell(1);
-                Cell cell1 = row.getCell(2);
-                if (cell.getCellTypeEnum() == CellType.STRING &&
-                        cell1.getCellTypeEnum() == CellType.NUMERIC)
-                    result.put(cell.getStringCellValue(), cell1.getNumericCellValue());
+                Cell cell1 = row.getCell(1);
+                Cell cell2 = row.getCell(2);
+                if (cell1.getCellTypeEnum() == CellType.STRING &&
+                        cell2.getCellTypeEnum() == CellType.NUMERIC)
+                    result.put(cell1.getStringCellValue(), cell2.getNumericCellValue());
             }
         }
 
