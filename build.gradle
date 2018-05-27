@@ -1,21 +1,19 @@
 plugins {
     id 'java'
+    id 'war'
 }
 
 group 'ru.vlapin.experiments.poi'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 10
+sourceCompatibility = 1.8
 
 repositories {
-
     flatDir { dirs './lib' } // for local libs
     mavenLocal()
     mavenCentral()
     jcenter() // BinTray
 }
-
-
 
 configurations {
     testCompile.extendsFrom compileOnly
@@ -26,9 +24,15 @@ test.testLogging.showStandardStreams = true
 
 dependencies {
     compile 'org.springframework:spring-context:+',
+            'org.springframework:spring-web:+',
 
-            'org.apache.poi:poi:+',
             'org.apache.poi:poi-ooxml:+',
+            'org.seleniumhq.selenium:selenium-java:+',
+
+            // Jersey && Jackson
+            'org.glassfish.jersey.containers:jersey-container-servlet:2.26-b03',
+            'org.glassfish.jersey.media:jersey-media-moxy:2.26-b03',
+            'com.fasterxml.jackson.core:jackson-databind:+',
 
             // Commons
             'org.apache.logging.log4j:log4j-slf4j-impl:+',
@@ -36,7 +40,12 @@ dependencies {
             'io.vavr:vavr:+'
 
     compileOnly ':lombok-edge:',// 'org.projectlombok:lombok:+',
-            'edu.washington.cs.types.checker:checker-framework:+'
+            'edu.washington.cs.types.checker:checker-framework:+',
+
+            // Tomcat internal libraries
+            'org.apache.tomcat:tomcat-api:+',
+            'org.apache.tomcat:tomcat-jsp-api:+',
+            'javax:javaee-api:+'
 
     testCompile 'org.junit.jupiter:junit-jupiter-params:+',
             'org.hamcrest:java-hamcrest:+',
@@ -54,6 +63,6 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     description = 'Generates gradlew[.bat] scripts'
-    gradleVersion = '4.8-rc-1'
+    gradleVersion = '4.8-rc-2'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
