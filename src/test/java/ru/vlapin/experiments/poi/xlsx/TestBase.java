@@ -1,14 +1,17 @@
 package ru.vlapin.experiments.poi.xlsx;
 
+import lombok.experimental.FieldDefaults;
 import lombok.val;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static lombok.AccessLevel.PROTECTED;
+
+@FieldDefaults(level = PROTECTED)
 class TestBase {
 
     static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();

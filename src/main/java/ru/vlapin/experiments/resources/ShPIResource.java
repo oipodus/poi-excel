@@ -1,6 +1,6 @@
 package ru.vlapin.experiments.resources;
 
-import ru.vlapin.experiments.model.ShPI;
+import ru.vlapin.experiments.model.ShpiResponse;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,6 +15,7 @@ public class ShPIResource implements JsonRestfulWebResource {
 
     @GET
     public Response hello() {
-        return ok(new ShPI(true, new String[] {"19734223000797"}));
+        return ok(new ShpiResponse(true,
+                new String[] {"19734223000797"}));
     }
 }

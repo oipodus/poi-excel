@@ -1,8 +1,8 @@
+
 package ru.vlapin.experiments.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
-import lombok.Builder.Default;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
@@ -15,12 +15,13 @@ import static lombok.AccessLevel.PRIVATE;
 @Builder
 @JsonInclude(NON_NULL)
 @FieldDefaults(level = PRIVATE)
-public class Shpi {
+public class AddressData {
+    String category;
+    String name;
+    String phoneNumber;
+    String inn;
+    Object kpp;
 
     @Valid
-    @Default
-    ClientData clientData = ClientData.builder().build();
-
-    @Default
-    long requiredCount = 1;
+    Address address;
 }

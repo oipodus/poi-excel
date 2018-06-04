@@ -1,0 +1,7 @@
+.gradle/
+gradle/
+build/
+
+logs/
+~$*
+/src/test/resources/shpi.json

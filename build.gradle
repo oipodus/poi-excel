@@ -39,10 +39,10 @@ dependencies {
             'javax.xml.bind:jaxb-api:+',
             'io.vavr:vavr:+'
 
-    compileOnly ':lombok-edge:',// 'org.projectlombok:lombok:+',
-            'edu.washington.cs.types.checker:checker-framework:+',
+    compileOnly 'edu.washington.cs.types.checker:checker-framework:+',
+            'org.jetbrains:annotations:+',
+            'org.projectlombok:lombok:+',
 
-            // Tomcat internal libraries
             'org.apache.tomcat:tomcat-api:+',
             'org.apache.tomcat:tomcat-jsp-api:+',
             'javax:javaee-api:+'
@@ -61,8 +61,11 @@ dependencies {
     testCompileOnly 'org.apiguardian:apiguardian-api:+'
 }
 
+// type in terminal: gradle wrapper --gradle-version=4.8-rc-3
 task wrapper(type: Wrapper) {
     description = 'Generates gradlew[.bat] scripts'
-    gradleVersion = '4.8-rc-2'
+    gradleVersion = '4.8-rc-3'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
+
+

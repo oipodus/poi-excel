@@ -4,22 +4,25 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsCollectionContaining.hasItem;
 
 class ExcelReaderTest {
 
     static Map<String, Double> sheet;
+    static Map<String, List<String>> sheetLists;
 
     @BeforeAll
     static void setUp() {
-        sheet = ExcelReader.toMap(
-                "/Countries-with-limits.xlsx",
-                "Sheet2");
+        sheet = ExcelReader.toMap("/Countries-with-limits.xlsx", "Sheet2");
+        sheetLists = ExcelReader.toListMap("/Weights_Limits.xlsx", "Sheet2");
     }
 
     private static Stream<String> createWordsWithLength() {
@@ -70,5 +73,12 @@ class ExcelReaderTest {
     void testMap(String name, Double value) {
 //        System.out.println(createWordsWithLength().collect(Collectors.joining(", ")));
         assertThat(sheet.get(name), is(value));
+    }
+
+    @ParameterizedTest
+    @DisplayName("toListMap method works correctly")
+    @ValueSource(strings = {"АБХАЗИЯ", "АВСТРАЛИЯ", "АЛБАНИЯ", "МАДАГАСКАР"})
+    void testToListMap(String countryName) {
+        assertThat(sheetLists.get("Country"), hasItem(countryName));
     }
 }

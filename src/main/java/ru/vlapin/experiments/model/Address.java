@@ -2,11 +2,8 @@ package ru.vlapin.experiments.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
-import lombok.Builder.Default;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
-
-import javax.validation.Valid;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 import static lombok.AccessLevel.PRIVATE;
@@ -15,12 +12,20 @@ import static lombok.AccessLevel.PRIVATE;
 @Builder
 @JsonInclude(NON_NULL)
 @FieldDefaults(level = PRIVATE)
-public class Shpi {
-
-    @Valid
-    @Default
-    ClientData clientData = ClientData.builder().build();
-
-    @Default
-    long requiredCount = 1;
+public class Address {
+    String addressType;
+    String postalCode;
+    long country;
+    String region;
+    String area;
+    String place;
+    String street;
+    String house;
+    Object letter;
+    Object slash;
+    String corpus;
+    String building;
+    String room;
+    Object numAddress;
+    Object hotel;
 }
