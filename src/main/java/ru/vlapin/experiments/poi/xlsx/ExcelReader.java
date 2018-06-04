@@ -29,7 +29,7 @@ public class ExcelReader {
                 Cell cell2 = row.getCell(2);
                 if (cell1.getCellTypeEnum() == CellType.STRING &&
                         cell2.getCellTypeEnum() == CellType.NUMERIC)
-                    result.put(cell1.getStringCellValue(), cell2.getNumericCellValue());
+                    result.put(cell1.getStringCellValue().trim(), cell2.getNumericCellValue());
             }
         }
 
