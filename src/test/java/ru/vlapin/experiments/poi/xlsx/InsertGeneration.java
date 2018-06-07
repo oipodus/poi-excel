@@ -16,7 +16,7 @@ import static lombok.AccessLevel.PRIVATE;
 @FieldDefaults(level = PRIVATE, makeFinal = true)
 public class InsertGeneration {
 
-    static String SQL_PATTERN = "INSERT INTO \"RpoRegistration\" VALUES (643, '',\";%s;\", \";C4;\" , 643, 0,\";B4;\" , 15, 2, 8, 0, null, 0, 'ЮЖНОБУТОВСКАЯ УЛ.,Д. 12,  157 КВ., МОСКВА Г., РЕГИОН МОСКВА Г., 117042', 'МАКСУДОВ', '', '', '', '', '\";D4;\"', 1, 0, null, 'МАКСУДОВ', null, null, 'false', 'false', 'false', 'ZK-66710', 1485874240913, null, '117042', 'false', DEFAULT);\"%n";
+    static String PATTERN = "INSERT INTO \"RpoRegistration\" VALUES (643, '',\";%s;\", \";C4;\" , 643, 0,\";B4;\" , 15, 2, 8, 0, null, 0, 'ЮЖНОБУТОВСКАЯ УЛ.,Д. 12,  157 КВ., МОСКВА Г., РЕГИОН МОСКВА Г., 117042', 'МАКСУДОВ', '', '', '', '', '\";D4;\"', 1, 0, null, 'МАКСУДОВ', null, null, 'false', 'false', 'false', 'ZK-66710', 1485874240913, null, '117042', 'false', DEFAULT);\"%n";
     static final String FILE_NAME = "/SHPI.txt";
 
     @SneakyThrows
@@ -34,9 +34,9 @@ public class InsertGeneration {
     @DisplayName("doWithFileLines method works correctly")
     void testDoWithFileLines() {
         doWithFileLines(FILE_NAME, line -> {
-            // Здесь пиши что надо делать с этой самой линией,
-            // например что бы вывести на консоль как ты выводила:
-            System.out.printf(SQL_PATTERN, line);
+            // Здесь пишем, что надо делать с каждой строчкой,
+            // например что бы вывести на консоль:
+            System.out.printf(PATTERN, line);
         });
     }
 }
