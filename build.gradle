@@ -25,7 +25,7 @@ test.testLogging.showStandardStreams = true
 dependencies {
     compile 'org.springframework:spring-context:+',
             'org.springframework:spring-web:+',
-
+            'com.codeborne:selenide:+',
             'org.apache.poi:poi-ooxml:+',
             'org.seleniumhq.selenium:selenium-java:+',
 

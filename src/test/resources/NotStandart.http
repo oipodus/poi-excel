@@ -1,0 +1,80 @@
+POST http://tracking-v3.test.russianpost.ru/barcode-fetch/v1/barcodes/fetch HTTP/1.1
+Host: tracking-v3.test.russianpost.ru
+Accept: application/json
+Content-Type: application/json
+
+{
+
+    "clientData": {
+        "companyID": "122740385",
+        "clientID": "494348762",
+        "contractNumber": "774836906M",
+        "mailDirect": 643,
+        "transType": 1,
+        "directCtg": 1,
+        "mailType": 4,
+        "mailCtg": 4,
+        "mailRank": 0,
+        "sendCtg": 1,
+        "postMark": "8",
+        "mass": 0,
+        "payment": 9999999,
+        "value": 599999900,
+        "payType": 1,
+        "sndrAddressData": {
+            "category": "Юридическое лицо",
+            "name": "Посылкина Анна Иванна",
+            "phoneNumber": "+7 222 121 23 22",
+            "inn": "1231231233",
+            "kpp": null,
+            "address": {
+            "addressType": "Default",
+            "postalCode": "140000",
+"country": 643,
+"region": "Санкт-Петербург",
+"area": "Ленинградская область",
+"place": "Санкт-Петербург",
+"street": "Ланское шоссе",
+"house": "6",
+"letter": null,
+"slash": null,
+"corpus": "3",
+"building": "4",
+"room": "422",
+"numAddress": null,
+"hotel": null
+}
+},
+"rcpnAddressData": {
+"category": "Юридическое лицо",
+"name": "Получалкина Петрина Пертровна",
+"phoneNumber": "+7 123 121 23 12",
+"inn": "123",
+"kpp": null,
+"address": {
+"addressType": "Default",
+"postalCode": "644021",
+"country": 643,
+"region": "Московская область",
+"area": "area",
+"place": "Москва",
+"street": "6 линия",
+"house": "3",
+"letter": null,
+"slash": null,
+"corpus": "5",
+"building": "",
+"room": "2",
+"numAddress": null,
+"hotel": null
+}
+},
+"mpoDeclaration": null,
+"height": 0,
+"width": 0,
+"length": 0
+},
+"requiredCount": 1
+}
+
+###

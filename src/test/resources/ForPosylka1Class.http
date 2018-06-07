@@ -1,0 +1,80 @@
+
+POST http://tracking-v3.test.russianpost.ru/barcode-fetch/v1/barcodes/fetch HTTP/1.1
+Host: tracking-v3.test.russianpost.ru
+Accept: application/json
+Content-Type: application/json
+
+{
+
+    "clientData": {
+        "companyID": "122740385",
+        "clientID": "494348762",
+        "contractNumber": "774836906M",
+        "mailDirect": 643,
+        "transType": 1,
+        "directCtg": 1,
+        "mailType": 47,
+        "mailCtg": 4,
+        "mailRank": 0,
+        "sendCtg": 1,
+        "postMark": "",
+        "mass": 0,
+        "payment": 10,
+        "value": 1099,
+        "payType": 1,
+        "sndrAddressData": {
+            "category": "Юридическое лицо",
+            "name": "Посылкина Анна Иванна",
+            "phoneNumber": "+7 222 121 23 22",
+            "inn": "1231231233",
+            "kpp": null,
+            "address": {
+            "addressType": "Default",
+            "postalCode": "140000",
+"country": 643,
+"region": "region1",
+"area": "area1",
+"place": "place1",
+"street": "street1",
+"house": "house1",
+"letter": null,
+"slash": null,
+"corpus": "corpus1",
+"building": "building1",
+"room": "room1",
+"numAddress": null,
+"hotel": null
+}
+},
+"rcpnAddressData": {
+"category": "Юридическое лицо",
+"name": "Получалкина Петрина Пертровна",
+"phoneNumber": "+7 123 121 23 12",
+"inn": "123",
+"kpp": null,
+"address": {
+"addressType": "Default",
+"postalCode": "644021",
+"country": 643,
+"region": "region",
+"area": "area",
+"place": "place",
+"street": "street",
+"house": "house",
+"letter": null,
+"slash": null,
+"corpus": "corpus",
+"building": "building",
+"room": "room",
+"numAddress": null,
+"hotel": null
+}
+},
+"mpoDeclaration": null,
+"height": 0,
+"width": 0,
+"length": 0
+},
+"requiredCount": 1
+}
+###
