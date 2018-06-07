@@ -61,11 +61,13 @@ dependencies {
     testCompileOnly 'org.apiguardian:apiguardian-api:+'
 }
 
-// type in terminal: gradle wrapper --gradle-version=4.8-rc-3
+// type in terminal: gradle wrapper --gradle-version=4.8
 task wrapper(type: Wrapper) {
     description = 'Generates gradlew[.bat] scripts'
-    gradleVersion = '4.8-rc-3'
+    gradleVersion = '4.8'
     distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
 }
+
+
 
 
