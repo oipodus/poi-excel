@@ -1,32 +1,48 @@
 package ru.vlapin.experiments.poi.xlsx;
+import lombok.Cleanup;
+import lombok.SneakyThrows;
+import lombok.val;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterEach;
-import org.openqa.selenium.By;
-import java.util.concurrent.*;
+
 import java.io.File;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class SeleniumTestChrome {
     private static WebDriver driver;
+    static String userName;
+    static String password;
+    static String urlPath;
 
-    @BeforeEach
+    @BeforeAll
+    @SneakyThrows
     public void setup() {
+        val properties = new Properties();
+        @Cleanup val inputStream = SeleniumTestIE.class.getResourceAsStream("/credentials.properties");
+        properties.load(inputStream);
+        userName = properties.getProperty("userName");
+        password = properties.getProperty("password");
+        urlPath = properties.getProperty("urlPath");
+
         File file = new File("C:\\Tools\\chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://anm.test.russianpost.ru/#/mailin");
+        driver.get(urlPath);
     }
     @Test
     public void userLogin() {
         WebElement loginField = driver.findElement(By.name("userName"));
-        loginField.sendKeys("test_emul_5");
+        loginField.sendKeys(userName);
         WebElement passwordField = driver.findElement(By.name("password"));
-        passwordField.sendKeys("12345");
+        passwordField.sendKeys(password);
         WebElement loginButton = driver.findElement(By.xpath("//button[text()='Вход']"));
         loginButton.click();
         WebElement trackId = driver.findElement(By.name("TrackId"));
